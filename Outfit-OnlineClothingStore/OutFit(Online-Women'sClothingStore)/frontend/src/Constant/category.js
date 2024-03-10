@@ -1,0 +1,15 @@
+export const CATEGORIES = [
+  { id: 1, name: "Tops" },
+  { id: 2, name: "Dresses" },
+  { id: 3, name: "Skirts" },
+  { id: 4, name: "Pants" },
+  { id: 5, name: "Shorts" },
+  { id: 6, name: "Outerwear" },
+  { id: 7, name: "Activewear" },
+  { id: 8, name: "Swimwear" },
+  { id: 9, name: "Sleepwear" },
+  { id: 10, name: "Maternity Wear" },
+  { id: 11, name: "Formal Wear" },
+  { id: 12, name: "Casual Wear" },
+  { id: 13, name: "Traditional Wear" },
+];

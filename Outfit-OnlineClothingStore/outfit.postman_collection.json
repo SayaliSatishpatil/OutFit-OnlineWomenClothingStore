@@ -1,0 +1,691 @@
+{
+	"info": {
+		"_postman_id": "90d2a367-0525-45f1-a36f-e68b93885335",
+		"name": "outfit",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "33083669"
+	},
+	"item": [
+		{
+			"name": "user",
+			"item": [
+				{
+					"name": "create",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"username\": \"admin\",\r\n  \"age\": 30,\r\n  \"email\": \"admin@gmail.com\",\r\n  \"password\": \"admin\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:9091/api/v1/user/create",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9091",
+							"path": [
+								"api",
+								"v1",
+								"user",
+								"create"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"email\": \"admin@gmail.com\",\r\n  \"password\": \"admin\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{outfit_baseURL}}user/token/login",
+							"host": [
+								"{{outfit_baseURL}}user"
+							],
+							"path": [
+								"token",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "details",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbkBnbWFpbC5jb20iLCJpYXQiOjE3MDg0MzA3MjYsImV4cCI6MTcwODUxNzEyNn0.lQxaRGJWJ8m4Px1vDdzG4HGsQrv0hne0v5W6pgeff_pa8_P8_gp9jTfuFCjxE2UmcJKBtIF9_GgGoHxylpN1Jw",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{outfit_baseURL}}user/",
+							"host": [
+								"{{outfit_baseURL}}user"
+							],
+							"path": [
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "resetpassword",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJzYXlhbGlAZ21haWwuY29tIiwiaWF0IjoxNzA4NDU4ODQ1LCJleHAiOjE3MDg1NDUyNDV9.W2QLxCj38li4rQ5zM0CAVzRTPblNi6j9_2QzbeDW6TqGIrHCx65z605l4sQK_kA7yDbKxdu5zlwIgcuw5twj0g",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"oldPassword\":\"12345\",\r\n    \"newPassword\":\"123456\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{outfit_baseURL}}user/update/password",
+							"host": [
+								"{{outfit_baseURL}}user"
+							],
+							"path": [
+								"update",
+								"password"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "product",
+			"item": [
+				{
+					"name": "add",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbkBnbWFpbC5jb20iLCJpYXQiOjE3MDg0MzA3MjYsImV4cCI6MTcwODUxNzEyNn0.lQxaRGJWJ8m4Px1vDdzG4HGsQrv0hne0v5W6pgeff_pa8_P8_gp9jTfuFCjxE2UmcJKBtIF9_GgGoHxylpN1Jw",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"name\": \"string3\",\r\n  \"brand\": \"string3\",\r\n  \"description\": \"string3\",\r\n  \"price\": 100,\r\n  \"imageUrl\": \"string\",\r\n  \"categoryId\": 2\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{outfit_baseURL}}product/add",
+							"host": [
+								"{{outfit_baseURL}}product"
+							],
+							"path": [
+								"add"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "productdetails",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbkBnbWFpbC5jb20iLCJpYXQiOjE3MDg0MzA3MjYsImV4cCI6MTcwODUxNzEyNn0.lQxaRGJWJ8m4Px1vDdzG4HGsQrv0hne0v5W6pgeff_pa8_P8_gp9jTfuFCjxE2UmcJKBtIF9_GgGoHxylpN1Jw",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{outfit_baseURL}}product/1",
+							"host": [
+								"{{outfit_baseURL}}product"
+							],
+							"path": [
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbkBnbWFpbC5jb20iLCJpYXQiOjE3MDg0MzA3MjYsImV4cCI6MTcwODUxNzEyNn0.lQxaRGJWJ8m4Px1vDdzG4HGsQrv0hne0v5W6pgeff_pa8_P8_gp9jTfuFCjxE2UmcJKBtIF9_GgGoHxylpN1Jw",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{outfit_baseURL}}product/1",
+							"host": [
+								"{{outfit_baseURL}}product"
+							],
+							"path": [
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getall",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbkBnbWFpbC5jb20iLCJpYXQiOjE3MDg0MzA3MjYsImV4cCI6MTcwODUxNzEyNn0.lQxaRGJWJ8m4Px1vDdzG4HGsQrv0hne0v5W6pgeff_pa8_P8_gp9jTfuFCjxE2UmcJKBtIF9_GgGoHxylpN1Jw",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{outfit_baseURL}}product/products",
+							"host": [
+								"{{outfit_baseURL}}product"
+							],
+							"path": [
+								"products"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "New Request",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJzYXlhbGlAZ21haWwuY29tIiwiaWF0IjoxNzA4NDU4ODQ1LCJleHAiOjE3MDg1NDUyNDV9.W2QLxCj38li4rQ5zM0CAVzRTPblNi6j9_2QzbeDW6TqGIrHCx65z605l4sQK_kA7yDbKxdu5zlwIgcuw5twj0g",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\":\"Skirt\",\r\n    \"description\":\"Pink colour\",\r\n    \"price\":400.0,\r\n    \"imageUrl\":\"img1\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{outfit_baseURL}}product/edit/1",
+							"host": [
+								"{{outfit_baseURL}}product"
+							],
+							"path": [
+								"edit",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "cart",
+			"item": [
+				{
+					"name": "add",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbkBnbWFpbC5jb20iLCJpYXQiOjE3MDg0MzA3MjYsImV4cCI6MTcwODUxNzEyNn0.lQxaRGJWJ8m4Px1vDdzG4HGsQrv0hne0v5W6pgeff_pa8_P8_gp9jTfuFCjxE2UmcJKBtIF9_GgGoHxylpN1Jw",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{outfit_baseURL}}cart/add/1",
+							"host": [
+								"{{outfit_baseURL}}cart"
+							],
+							"path": [
+								"add",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbkBnbWFpbC5jb20iLCJpYXQiOjE3MDg0MzA3MjYsImV4cCI6MTcwODUxNzEyNn0.lQxaRGJWJ8m4Px1vDdzG4HGsQrv0hne0v5W6pgeff_pa8_P8_gp9jTfuFCjxE2UmcJKBtIF9_GgGoHxylpN1Jw",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{outfit_baseURL}}cart/items",
+							"host": [
+								"{{outfit_baseURL}}cart"
+							],
+							"path": [
+								"items"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbkBnbWFpbC5jb20iLCJpYXQiOjE3MDg0MzA3MjYsImV4cCI6MTcwODUxNzEyNn0.lQxaRGJWJ8m4Px1vDdzG4HGsQrv0hne0v5W6pgeff_pa8_P8_gp9jTfuFCjxE2UmcJKBtIF9_GgGoHxylpN1Jw",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{outfit_baseURL}}cart/1",
+							"host": [
+								"{{outfit_baseURL}}cart"
+							],
+							"path": [
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "order",
+			"item": [
+				{
+					"name": "get",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbkBnbWFpbC5jb20iLCJpYXQiOjE3MDg0MzA3MjYsImV4cCI6MTcwODUxNzEyNn0.lQxaRGJWJ8m4Px1vDdzG4HGsQrv0hne0v5W6pgeff_pa8_P8_gp9jTfuFCjxE2UmcJKBtIF9_GgGoHxylpN1Jw",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{outfit_baseURL}}order/user/orders",
+							"host": [
+								"{{outfit_baseURL}}order"
+							],
+							"path": [
+								"user",
+								"orders"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "place",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbkBnbWFpbC5jb20iLCJpYXQiOjE3MDg0MzA3MjYsImV4cCI6MTcwODUxNzEyNn0.lQxaRGJWJ8m4Px1vDdzG4HGsQrv0hne0v5W6pgeff_pa8_P8_gp9jTfuFCjxE2UmcJKBtIF9_GgGoHxylpN1Jw",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{outfit_baseURL}}order/place/1/pune",
+							"host": [
+								"{{outfit_baseURL}}order"
+							],
+							"path": [
+								"place",
+								"1",
+								"pune"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "cancel",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbkBnbWFpbC5jb20iLCJpYXQiOjE3MDg0MzA3MjYsImV4cCI6MTcwODUxNzEyNn0.lQxaRGJWJ8m4Px1vDdzG4HGsQrv0hne0v5W6pgeff_pa8_P8_gp9jTfuFCjxE2UmcJKBtIF9_GgGoHxylpN1Jw",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"url": {
+							"raw": "{{outfit_baseURL}}order/cancel/1",
+							"host": [
+								"{{outfit_baseURL}}order"
+							],
+							"path": [
+								"cancel",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "changestatus",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbkBnbWFpbC5jb20iLCJpYXQiOjE3MDg0MzA3MjYsImV4cCI6MTcwODUxNzEyNn0.lQxaRGJWJ8m4Px1vDdzG4HGsQrv0hne0v5W6pgeff_pa8_P8_gp9jTfuFCjxE2UmcJKBtIF9_GgGoHxylpN1Jw",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"url": {
+							"raw": "{{outfit_baseURL}}order/change/status/1/1",
+							"host": [
+								"{{outfit_baseURL}}order"
+							],
+							"path": [
+								"change",
+								"status",
+								"1",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getall",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJzYXlhbGlAZ21haWwuY29tIiwiaWF0IjoxNzA4NDU4ODQ1LCJleHAiOjE3MDg1NDUyNDV9.W2QLxCj38li4rQ5zM0CAVzRTPblNi6j9_2QzbeDW6TqGIrHCx65z605l4sQK_kA7yDbKxdu5zlwIgcuw5twj0g",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{outfit_baseURL}}order/orders",
+							"host": [
+								"{{outfit_baseURL}}order"
+							],
+							"path": [
+								"orders"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "review",
+			"item": [
+				{
+					"name": "add",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbkBnbWFpbC5jb20iLCJpYXQiOjE3MDg0MzA3MjYsImV4cCI6MTcwODUxNzEyNn0.lQxaRGJWJ8m4Px1vDdzG4HGsQrv0hne0v5W6pgeff_pa8_P8_gp9jTfuFCjxE2UmcJKBtIF9_GgGoHxylpN1Jw",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"productId\": 1,\r\n  \"comment\": \"string\",\r\n  \"rating\": 5\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{outfit_baseURL}}review/add",
+							"host": [
+								"{{outfit_baseURL}}review"
+							],
+							"path": [
+								"add"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbkBnbWFpbC5jb20iLCJpYXQiOjE3MDg0MzA3MjYsImV4cCI6MTcwODUxNzEyNn0.lQxaRGJWJ8m4Px1vDdzG4HGsQrv0hne0v5W6pgeff_pa8_P8_gp9jTfuFCjxE2UmcJKBtIF9_GgGoHxylpN1Jw",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{outfit_baseURL}}review/reviews/1",
+							"host": [
+								"{{outfit_baseURL}}review"
+							],
+							"path": [
+								"reviews",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "favourite",
+			"item": [
+				{
+					"name": "get",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbkBnbWFpbC5jb20iLCJpYXQiOjE3MDg0MzA3MjYsImV4cCI6MTcwODUxNzEyNn0.lQxaRGJWJ8m4Px1vDdzG4HGsQrv0hne0v5W6pgeff_pa8_P8_gp9jTfuFCjxE2UmcJKBtIF9_GgGoHxylpN1Jw",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{outfit_baseURL}}favorite/favorites",
+							"host": [
+								"{{outfit_baseURL}}favorite"
+							],
+							"path": [
+								"favorites"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbkBnbWFpbC5jb20iLCJpYXQiOjE3MDg0MzA3MjYsImV4cCI6MTcwODUxNzEyNn0.lQxaRGJWJ8m4Px1vDdzG4HGsQrv0hne0v5W6pgeff_pa8_P8_gp9jTfuFCjxE2UmcJKBtIF9_GgGoHxylpN1Jw",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{outfit_baseURL}}favorite/1",
+							"host": [
+								"{{outfit_baseURL}}favorite"
+							],
+							"path": [
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "add",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbkBnbWFpbC5jb20iLCJpYXQiOjE3MDg0MzA3MjYsImV4cCI6MTcwODUxNzEyNn0.lQxaRGJWJ8m4Px1vDdzG4HGsQrv0hne0v5W6pgeff_pa8_P8_gp9jTfuFCjxE2UmcJKBtIF9_GgGoHxylpN1Jw",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{outfit_baseURL}}favorite/1",
+							"host": [
+								"{{outfit_baseURL}}favorite"
+							],
+							"path": [
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
